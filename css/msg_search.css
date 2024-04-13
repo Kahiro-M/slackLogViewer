@@ -1,3 +1,11 @@
+.header {
+  width: 1200px;
+  margin: 5px auto;
+  display: block;
+  border-spacing: 0;
+}
+
+
 .contents {
   display: inline-flex;
 }
@@ -15,7 +23,6 @@
 }
 
 .msg_channel{
-  display: none;
   width: 300px;
   margin-left: 100px;
   text-align: left;
@@ -57,6 +64,7 @@
   font-size: xx-small;
   color: #FFFFFF33;
 }
+
 
 .search_bar{
   width:100px;

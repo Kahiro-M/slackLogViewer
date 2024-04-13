@@ -1,8 +1,8 @@
 <?php 
 include('./config/env.php');
-$htmlTitle = 'チャンネル';
-$channelName = '00_全メンバー';
-$cssPath = './css/msg.css';
+$htmlTitle = '検索';
+$cssPath = './css/msg_search.css';
+$searchWord = $_POST['msg'];
 if(!empty($_GET['ch'])){
     $channelCode = $_GET['ch'];
 }else{
@@ -35,7 +35,7 @@ $channelName = get_channel_name($db, $channelCode);
 <?php } ?>
     </div>
 <?php 
-$results = get_channel_msgs($db,$channelName,$orderby);
+$results = search_channel_msgs($db,$searchWord,$orderby);
 while ($row = $results->fetchArray()) {
 ?>
     <div class="msg">
