@@ -1,13 +1,13 @@
 <?php 
 class MyDB extends SQLite3
 {
-    function __construct()
+    function __construct($dbFilePath)
     {
-        $this->open('SlackLog.db');
+        $this->open($dbFilePath);
     }
 }
 
-$db = new MyDB();
+$db = new MyDB($dbFilePath);
 
 function get_channel_name($db, $channelCode){
     $results = $db->query('SELECT channel_id,name,is_private FROM channels WHERE channel_id like "'.$channelCode.'"');

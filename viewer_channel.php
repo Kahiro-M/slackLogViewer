@@ -1,12 +1,12 @@
 <?php 
+include('./config/env.php');
 $htmlTitle = 'チャンネル';
 $channelName = '00_全メンバー';
 $cssPath = './css/msg.css';
 if(!empty($_GET['ch'])){
     $channelCode = $_GET['ch'];
 }else{
-    // $channelCode = 'C06M4EBD3LH';
-    $channelCode = '';
+    $channelCode = $defaultChannelCode;
 }
 if(!empty($_GET['odr'])){
     if(in_array($_GET['odr'],['asc','desc'])){
@@ -18,9 +18,9 @@ if(!empty($_GET['odr'])){
     $orderby = 'ASC';
 }
 
-include('./template/header.php');
 include('./common/func.php');
 include('./common/db.php');
+include('./template/header.php');
 
 $channelName = get_channel_name($db, $channelCode);
 ?>
