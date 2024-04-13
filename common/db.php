@@ -33,7 +33,7 @@ function get_channel_msgs($db,$channelName,$orderby){
 
 function search_channel_msgs($db,$searchWord,$orderby){
     $query = 'SELECT timestamp,name,text,files,msgid,channel FROM message WHERE text like "%'.$searchWord.'%" ORDER BY channel,timestamp '.$orderby.';';
-    $results = $db->query($query);channels
+    $results = $db->query($query);
     return $results;
 }
 
