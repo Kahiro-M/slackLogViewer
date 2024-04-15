@@ -1,16 +1,18 @@
 html[lang="ja"] {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  background-color: #7f2a7a;
 }
 
 .contents {
   display: inline-flex;
   width: 1200px;
+  background-color: #FFFFFF;
 }
 
 .msg{
   margin-top: 20px;
   margin-left: 20px;
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
 }
 
 .msg_info{
@@ -37,7 +39,8 @@ html[lang="ja"] {
 
 .msg_content{
   padding: 10px;
-  background-color: #F0F0F0;
+  /* background-color: #F0F0F0; */
+  margin-left: 56px;
 }
 
 .msg_body {
@@ -54,8 +57,14 @@ html[lang="ja"] {
 .ch_title{
   position: sticky;
   top: 0px;
-  background-color: #FFFFCC;
+  background-color: #FFFFFF;
   padding: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: solid 1px #b9babd;
+}
+.ch_title::before {
+  content: "#";
 }
 
 .channel_code{
@@ -78,7 +87,7 @@ html[lang="ja"] {
 }
 
 .channel_name {
-  margin: 0px 20px;
+  margin: 10px 20px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -89,3 +98,17 @@ html[lang="ja"] {
   content: "#";
 }
 
+.ch_list .channel_selected a{
+  color: #f9f9f9;
+  text-decoration: unset;
+}
+.channel_selected{
+  color: #f9f9f9;
+  background-color: #712e6d;
+}
+.user_icon{
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  margin-right: 10px;
+}

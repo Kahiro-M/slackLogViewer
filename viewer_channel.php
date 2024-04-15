@@ -2,7 +2,7 @@
 include('./config/env.php');
 $htmlTitle = 'チャンネル';
 $channelName = '00_全メンバー';
-$cssPath = './css/msg.css';
+$cssList = [];
 if(!empty($_GET['ch'])){
     $channelCode = $_GET['ch'];
 }else{
@@ -39,6 +39,7 @@ $results = get_channel_msgs($db,$channelName,$orderby);
 while ($row = $results->fetchArray()) {
 ?>
     <div class="msg">
+        <img src="./img/default_icon.png" class="user_icon">
         <div class="msg_info">
             <div class="msg_name"><?php print($row['name']);?></div>
             <div class="msg_timestamp"><?php print($row['timestamp']);?></div>
@@ -48,7 +49,7 @@ while ($row = $results->fetchArray()) {
 <?php   if(!empty($row['files'])){ ?>
             <a href="<?php print($row['files']);?>">添付ファイル</a><br>
 <?php   }?>
-        <?php print($row['text']);?>
+        <?php print(nl2br(replace_http_to_link($row['text'])));?>
     </div>
     </div>
 <?php }?>
