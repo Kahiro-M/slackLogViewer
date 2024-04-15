@@ -73,9 +73,19 @@ html[lang="ja"] {
 }
 
 .search_bar{
-  width:100px;
+  margin-top: 10px;
+  margin-left: 20px;
+  width:180px;
 }
-
+.search_bar input.search_word{
+  width:120px;
+  height: 20px;
+  padding:5px;
+}
+.search_bar button{
+    position: relative;
+    top: 6px;
+}
 .ch_list {
   background-color: #3F0E40;
   color: #b9babd;

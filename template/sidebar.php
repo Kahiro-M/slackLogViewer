@@ -3,7 +3,7 @@
     <div class="search_bar">
         <form action="viewer_search.php" method="post">
             <input type="text" class="search_word" name="msg" value="<?php if(!empty($searchWord)){print($searchWord);} ?>">
-            <input type="submit" name="searching" value="検索">
+            <button type="submit" name="searching"><span class="material-symbols-outlined">manage_search</span></button>
         </form>
     </div>
 
