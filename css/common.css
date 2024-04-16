@@ -9,6 +9,10 @@ html[lang="ja"] {
   background-color: #FFFFFF;
 }
 
+.msg_view {
+  width: 980px;
+}
+
 .msg{
   margin-top: 20px;
   margin-left: 20px;
@@ -65,6 +69,7 @@ html[lang="ja"] {
   font-size: 18px;
   font-weight: 700;
   border-bottom: solid 1px #b9babd;
+  display: block;
 }
 .ch_title::before {
   content: "#";
@@ -93,6 +98,7 @@ html[lang="ja"] {
   background-color: #3F0E40;
   color: #b9babd;
   font-size: 18px;
+  width: 220px;
 }
 .ch_list a{
   color: #b9babd;
