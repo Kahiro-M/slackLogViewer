@@ -47,4 +47,13 @@ function get_channel_list($db){
     return $channelList;
 }
 
+function get_user_id($db, $display_name){
+    $query = 'SELECT user_id,display_name FROM users WHERE display_name like "'.$display_name.'"';
+    $results = $db->query($query);
+    while ($row = $results->fetchArray()) {
+        return $row['user_id'];
+    }
+}
+
+
 ?>

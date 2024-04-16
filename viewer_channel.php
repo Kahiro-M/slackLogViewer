@@ -39,7 +39,7 @@ $results = get_channel_msgs($db,$channelName,$orderby);
 while ($row = $results->fetchArray()) {
 ?>
     <div class="msg">
-        <img src="./img/default_icon.png" class="user_icon">
+        <img src="<?php if(!empty(get_user_id($db,$row['name']))){print('./img/user_icon/'.get_user_id($db,$row['name']).'.jpg');}else{print('/img/default_icon.png');} ?>" class="user_icon">
         <div class="msg_info">
             <div class="msg_name"><?php print($row['name']);?></div>
             <div class="msg_timestamp"><?php print($row['timestamp']);?></div>

@@ -1,14 +1,16 @@
 <?php 
+include('./config/env.php');
 $htmlTitle = 'TOP';
-// $cssPath = './css/msg_all.css';
-
+$cssList = [];
 include('./template/header.php');
 include('./common/func.php');
 include('./common/db.php');
 ?>
 
+<div style="display:block;">
 <div>チャンネル情報</div>
 
+<div style="display:block;">
 
 <?php 
 $results = $db->query('SELECT * FROM channels');
@@ -17,8 +19,10 @@ while ($row = $results->fetchArray()) {
     dbg_dump($row);
     echo('</pre>');
 }
+?>
+</div>
 
-
+<?php 
 include('./template/footer.php');
 ?>
 

@@ -28,3 +28,6 @@
 *.db
 *.sqlite
 config/env.php
+.htaccess
+.htpasswd
+img/user_icon/*
