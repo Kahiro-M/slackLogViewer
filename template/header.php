@@ -12,6 +12,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
     <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emojione@4.5.0/lib/js/emojione.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@4.5.0/extras/css/emojione.min.css">
 </head>
 <body>
 <div class="contents">
