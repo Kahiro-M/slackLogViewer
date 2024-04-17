@@ -3,11 +3,6 @@ include('./config/env.php');
 $htmlTitle = '検索';
 $cssList = ['./css/msg_search.css'];
 $searchWord = $_POST['msg'];
-// if(!empty($_GET['ch'])){
-//     $channelCode = $_GET['ch'];
-// }else{
-//     $channelCode = $defaultChannelCode;
-// }
 if(!empty($_GET['odr'])){
     if(in_array($_GET['odr'],['asc','desc'])){
         $orderby = $_GET['odr'];
