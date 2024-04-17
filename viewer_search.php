@@ -40,11 +40,19 @@ while ($row = $results->fetchArray()) {
     <div class="msg_body">
 <?php 
 $results->reset();
+$prevMsgChannel = '';
 while ($row = $results->fetchArray()) {
+    if($prevMsgChannel == $row['channel']){
+        $prevMsgChannel = $row['channel'];
+    }else{
+?>
+<?php 
+    }
 ?>
         <a class="serach_link" href="viewer_channel.php?ch=<?php print(get_channel_code($db, $row['channel']));?>#<?php print($row['msgid']);?>">
 
             <div class="msg">
+                <div class="search_channel_title"># <?php print($row['channel']); ?></div>
                 <img src="<?php if(!empty(get_user_id($db,$row['name']))){print('./img/user_icon/'.get_user_id($db,$row['name']).'.jpg');}else{print('/img/default_icon.png');} ?>" class="user_icon">
                 <div class="msg_info">
                     <div class="msg_name"><?php print($row['name']);?></div>
@@ -53,7 +61,7 @@ while ($row = $results->fetchArray()) {
                 </div>
                 <div class="msg_content">
 <?php   if(!empty($row['files'])){ ?>
-                    <a target="_blank" href="<?php print($row['files']);?>">添付ファイル</a><br>
+                    <span class="dummy_link">添付ファイル</span><br>
 <?php   }?>
                     <?php print(nl2br(replace_http_to_link($row['text'])));?>
                 </div>

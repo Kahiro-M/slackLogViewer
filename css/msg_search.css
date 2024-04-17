@@ -1,8 +1,24 @@
+.msg_body{
+  background-color: #f7f4f7;  
+}
+
 .msg_channel{
   display: inline;
+  font-style: italic;
+  color: #b9babd;
 }
 
 a.serach_link {
   text-decoration: none;
   color: #000;
+}
+
+.dummy_link{
+  text-decoration: underline;
+}
+
+.search_channel_title{
+  color: #b9babd;
+  font-weight: 700;
+  padding: 10px;
 }
