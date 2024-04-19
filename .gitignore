@@ -30,4 +30,4 @@
 config/env.php
 .htaccess
 .htpasswd
-img/user_icon/*
+img/user_icon/*.jpg
