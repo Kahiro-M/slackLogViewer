@@ -1,7 +1,6 @@
 <?php 
 include('./config/env.php');
 $htmlTitle = 'チャンネル';
-$channelName = '00_全メンバー';
 $cssList = [];
 if(!empty($_GET['ch'])){
     $channelCode = $_GET['ch'];
