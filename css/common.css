@@ -133,3 +133,9 @@ html[lang="ja"] {
 .search_find{
   background-color: #FFFFE0;
 }
+
+.attachImg{
+  /* max-width: 150px; */
+  max-height: 200px;
+  border: solid 1px #b9babd;
+}

@@ -46,9 +46,27 @@ while ($row = $results->fetchArray()) {
                 <div class="msg_channel"><?php print($row['channel']);?></div>
             </div>
             <div class="msg_content">
-<?php   if(!empty($row['files'])){ ?>
+
+<?php 
+    // ファイル保管場所から該当ファイルを検索
+    $attachFileList = glob($filesDirPath.'/'.$row['msgid'].'*');
+
+    // 添付ファイル表示
+    if(!empty($row['files'])){
+        if(count($attachFileList)>0){
+            foreach($attachFileList as $attachFile){
+                // 添付ファイルフォルダ内にmsgidを含むファイルがあれば表示
+                $fileType = pathinfo($attachFile,PATHINFO_EXTENSION);
+?>
+                <a target="_blank" href="<?php print($attachFile);?>"><?php if(in_array($fileType,['apng','avif','gif','jpg','jpeg','jfif','pjpeg','pjp','png','svg','webp'])){print('<img src="'.$attachFile.'" class="attachImg">');}else{print('添付ファイル');}  ?></a>
+<?php       } ?>
+                <br>
+<?php   }else{ ?>
                 <a target="_blank" href="<?php print($row['files']);?>">添付ファイル</a><br>
-<?php   }?>
+<?php
+        }
+    }
+?>
                 <?php print(nl2br(replace_http_to_link($row['text'])));?>
             </div>
         </div>

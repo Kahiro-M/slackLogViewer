@@ -55,9 +55,25 @@ while ($row = $results->fetchArray()) {
                     <div class="msg_channel"><?php print($row['channel']);?></div>
                 </div>
                 <div class="msg_content">
-<?php   if(!empty($row['files'])){ ?>
-                    <span class="dummy_link">添付ファイル</span><br>
-<?php   }?>
+
+                <?php 
+    // ファイル保管場所から該当ファイルを検索
+    $attachFileList = glob($filesDirPath.'/'.$row['msgid'].'*');
+    // 添付ファイル表示
+    if(!empty($row['files'])){
+        if(count($attachFileList)>0){
+            foreach($attachFileList as $attachFile){
+                // 添付ファイルフォルダ内にmsgidを含むファイルがあれば表示
+?>
+                    <span class="dummy_link">添付ファイル</span>
+<?php       } ?>
+                    <br>
+<?php   }else{ ?>
+                    <span class="dummy_link">添付ファイル</span>
+<?php
+        }
+    }
+?>
                     <?php print(nl2br(replace_http_to_link($row['text'])));?>
                 </div>
             </div>

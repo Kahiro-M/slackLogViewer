@@ -31,3 +31,4 @@ config/env.php
 .htaccess
 .htpasswd
 img/user_icon/*.jpg
+files/*
