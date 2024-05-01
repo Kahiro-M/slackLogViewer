@@ -64,8 +64,9 @@ while ($row = $results->fetchArray()) {
         if(count($attachFileList)>0){
             foreach($attachFileList as $attachFile){
                 // 添付ファイルフォルダ内にmsgidを含むファイルがあれば表示
+                $fileType = pathinfo($attachFile,PATHINFO_EXTENSION);
 ?>
-                    <span class="dummy_link">添付ファイル</span>
+                    <span class="dummy_link"><?php if(in_array($fileType,['apng','avif','gif','jpg','jpeg','jfif','pjpeg','pjp','png','svg','webp'])){print('<img src="'.$attachFile.'" class="attachImg">');}else{print(str_replace($row['msgid'].'_','',pathinfo($attachFile,PATHINFO_BASENAME)));}  ?></span>
 <?php       } ?>
                     <br>
 <?php   }else{ ?>

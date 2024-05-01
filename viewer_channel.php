@@ -58,7 +58,7 @@ while ($row = $results->fetchArray()) {
                 // 添付ファイルフォルダ内にmsgidを含むファイルがあれば表示
                 $fileType = pathinfo($attachFile,PATHINFO_EXTENSION);
 ?>
-                <a target="_blank" href="<?php print($attachFile);?>"><?php if(in_array($fileType,['apng','avif','gif','jpg','jpeg','jfif','pjpeg','pjp','png','svg','webp'])){print('<img src="'.$attachFile.'" class="attachImg">');}else{print('添付ファイル');}  ?></a>
+                <a target="_blank" href="<?php print($attachFile);?>"><?php if(in_array($fileType,['apng','avif','gif','jpg','jpeg','jfif','pjpeg','pjp','png','svg','webp'])){print('<img src="'.$attachFile.'" class="attachImg">');}else{print(str_replace($row['msgid'].'_','',pathinfo($attachFile,PATHINFO_BASENAME)));}  ?></a>
 <?php       } ?>
                 <br>
 <?php   }else{ ?>
