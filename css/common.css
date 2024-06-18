@@ -47,6 +47,7 @@ html[lang="ja"] {
   padding: 0px 10px 10px 10px;
   /* background-color: #F0F0F0; */
   margin-left: 46px;
+  font-size: 14px;
 }
 
 .msg_body {
@@ -110,6 +111,7 @@ html[lang="ja"] {
   text-overflow: ellipsis;
   width: 180px;
   height: 30px;
+  font-size: 15px;
 }
 .channel_name::before {
   content: "#";
