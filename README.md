@@ -2,11 +2,11 @@
 Slackからエクスポートした会話データを閲覧するビューアーです。
 
 ## How To Use?
+### SQLiteの場合
  1. Slackから会話データをエクスポートする。  
     - 利用ツール：[SlackExportTool](https://github.com/Kahiro-M/slackExportTool/releases/tag/v.1.0.1)  
         `slackExport --token xoxp-XXXXXXXXXXXXX-XXXXXXXXXXXXX-XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --output-dir /output/dir/path`
     - 標準機能：[ワークスペースのデータをエクスポートする](https://slack.com/intl/ja-jp/help/articles/201658943)  
-        標準機能でダウンロード場合はZIP形式に圧縮する。
  2. [slackJsonToCsv](https://github.com/Kahiro-M/slackJsonToCsv/releases/tag/v.1.0.7)でエクスポートしたデータをSQLiteファイルに変換する。  
     `json2csv4slack OUTPUT_JSON.zip other sqlite`
  3. [slackLogViewer](https://github.com/Kahiro-M/slackLogViewer)をWEBサーバのドキュメントルートにアップロードする。
@@ -14,6 +14,30 @@ Slackからエクスポートした会話データを閲覧するビューアー
     ※DBファイル保管ディレクトリはHTTPでアクセスできない場所にする。
  5. `config/env.php.sample`を元に`config/env.php`を作成する。  
     ※`$dbFilePath`と`$defaultChannelCode`は利用する環境に合わせて設定する。
+ 6. `https://WEBサーバのURL/viewer_channel.php`にアクセスする。
+
+### MySQLの場合
+ 1. Slackから会話データをエクスポートする。  
+    - 利用ツール：[SlackExportTool](https://github.com/Kahiro-M/slackExportTool/releases/tag/v.1.0.1)  
+        `slackExport --token xoxp-XXXXXXXXXXXXX-XXXXXXXXXXXXX-XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX --output-dir /output/dir/path`
+    - 標準機能：[ワークスペースのデータをエクスポートする](https://slack.com/intl/ja-jp/help/articles/201658943)  
+ 2. [slackJsonToCsv](https://github.com/Kahiro-M/slackJsonToCsv/releases/tag/v.1.0.7)でエクスポートしたデータをMySQLのsqlファイルに変換する。  
+    `json2csv4slack OUTPUT_JSON.zip other mysql`
+ 3. [slackLogViewer](https://github.com/Kahiro-M/slackLogViewer)をWEBサーバのドキュメントルートにアップロードする。
+ 4. DBサーバ内にsqlを流し込む
+ 5. `config/env.php.sample`を元に`config/env.php`を作成する。  
+ ```
+ # 設定例(config/env.php)
+define('DB_MODE','MySQL');
+$filesDirPath = 'files';
+$defaultChannelCode = 'XXXXXXXXXXX';
+
+// DB_MODEがMySQLの場合に適用
+define('DB_HOST',     'mysql.example.co.jp');    // データベースのホスト名,IPアドレス,Dockerサービス名
+define('DB_NAME',     'sample_slack_log');       // データベース名
+define('DB_USERNAME', 'sample_user');            // データベースのユーザー名
+define('DB_PASSWORD', 'sample_password');        // データベースのパスワード
+ ```
  6. `https://WEBサーバのURL/viewer_channel.php`にアクセスする。
 
 ## TIPS
