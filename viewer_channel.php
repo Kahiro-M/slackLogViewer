@@ -36,7 +36,7 @@ $channelName = get_channel_name($db, $channelCode);
     <div class="msg_body">
 <?php 
 $results = get_channel_msgs($db,$channelName,$orderby);
-while ($row = $results->fetchArray()) {
+while ($row = db_fetch($results)) {
 ?>
         <div class="msg" id="<?php print($row['msgid']);?>">
             <img src="<?php if(!empty(get_user_id($db,$row['name']))){print('./img/user_icon/'.get_user_id($db,$row['name']).'.jpg');}else{print('/img/default_icon.png');} ?>" class="user_icon">

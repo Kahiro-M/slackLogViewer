@@ -14,7 +14,7 @@ include('./common/db.php');
 
 <?php 
 $results = $db->query('SELECT * FROM channels');
-while ($row = $results->fetchArray()) {
+while ($row = db_fetch($results)) {
     echo('<pre>');
     dbg_dump($row);
     echo('</pre>');

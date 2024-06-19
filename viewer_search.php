@@ -20,7 +20,7 @@ include('./template/header.php');
 $channelName = '検索結果';
 $results = search_channel_msgs($db,$searchWord,$orderby);
 $count = 0;
-while ($row = $results->fetchArray()) {
+while ($row = db_fetch($results)) {
     $count++;
 }
 ?>
@@ -36,7 +36,7 @@ while ($row = $results->fetchArray()) {
 <?php 
 $results->reset();
 $prevMsgChannel = '';
-while ($row = $results->fetchArray()) {
+while ($row = db_fetch($results)) {
     if($prevMsgChannel == $row['channel']){
         $prevMsgChannel = $row['channel'];
     }else{
