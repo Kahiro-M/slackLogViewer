@@ -36,13 +36,26 @@ $channelName = get_channel_name($db, $channelCode);
     <div class="msg_body">
 <?php 
 $results = get_channel_msgs($db,$channelName,$orderby);
+$lastday = '';
 while ($row = db_fetch($results)) {
+    if(substr($row['timestamp'],0,10) == $lastday){
+
+    }else{
+        $lastday = substr($row['timestamp'],0,10);
+?>
+        <div class="date-border">
+            <div class="date-title">
+                <?php print($lastday);?>
+            </div>
+        </div>
+<?php 
+    }
 ?>
         <div class="msg" id="<?php print($row['msgid']);?>">
             <img src="<?php if(!empty(get_user_id($db,$row['name']))){print('./img/user_icon/'.get_user_id($db,$row['name']).'.jpg');}else{print('/img/default_icon.png');} ?>" class="user_icon">
             <div class="msg_info">
                 <div class="msg_name"><?php print($row['name']);?></div>
-                <div class="msg_timestamp"><?php print($row['timestamp']);?></div>
+                <div class="msg_timestamp"><?php print(substr($row['timestamp'],11,5));?></div>
                 <div class="msg_channel"><?php print($row['channel']);?></div>
             </div>
             <div class="msg_content">
