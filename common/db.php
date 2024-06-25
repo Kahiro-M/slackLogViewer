@@ -32,6 +32,20 @@ function db_fetch($results){
     }
 }
 
+// SQLiteでのレコード数計算とMySQLのrowCount()のラッパー関数
+function db_count($results){
+    if(DB_MODE == 'SQLite'){
+        $count = 0;
+        while ($row = db_fetch($results)) {
+            $count++;
+        }
+        $results->reset();
+        return $count;
+    }else{
+        return $results->rowCount();
+    }
+}
+
 function get_channel_name($db, $channelCode){
     $query = 'SELECT channel_id,name,is_private FROM channels WHERE channel_id like "'.$channelCode.'"';
     $results = $db->query($query);
