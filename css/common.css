@@ -165,3 +165,50 @@ html[lang="ja"] {
 .date-border:first-child {
   margin-top: 20px;
 }
+
+.block-code{
+  display: block;
+  font-family: monospace;
+  unicode-bidi: isolate;
+  white-space: pre;
+  margin: 1em 0px;
+  background: #f9f9f9;
+  border: solid 1px #dddddd;
+  padding: 5px;
+}
+
+.inline-code{
+  display: inline;
+  font-family: monospace;
+  unicode-bidi: isolate;
+  white-space: pre;
+  margin: 1em 0px;
+  background: #f9f9f9;
+  border: solid 1px #dddddd;
+  padding: 5px;
+  color: crimson;
+}
+
+.inline-code{
+  display: inline;
+  font-family: monospace;
+  unicode-bidi: isolate;
+  white-space: pre;
+  margin: 1em 0px;
+  background: #f9f9f9;
+  border: solid 1px #dddddd;
+  padding: 5px;
+  color: crimson;
+}
+
+.quote{
+  display: inline;
+  font-family: monospace;
+  unicode-bidi: isolate;
+  white-space: pre;
+  margin: 1em 0px;
+  border-left: solid 5px #999;
+  padding: 5px;
+  color: #999;
+}
+
