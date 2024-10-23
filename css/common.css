@@ -59,6 +59,16 @@ html[lang="ja"] {
   border-spacing: 0;
 }
 
+.canvas_body {
+  /* width: 99%; */
+  max-width: 1200px;
+  height: 800px;
+  margin: 10px;
+  display: block;
+  overflow-x: auto;
+  border-spacing: 0;
+}
+
 .ch_title{
   position: sticky;
   top: 0px;
@@ -109,11 +119,21 @@ html[lang="ja"] {
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 180px;
-  height: 30px;
+  /* height: 30px; */
   font-size: 15px;
 }
 .channel_name::before {
   content: "#";
+}
+.channel_canvas {
+  margin-left: 25px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+.channel_canvas::before {
+  content: "❑";
 }
 
 .ch_list .channel_selected a{
